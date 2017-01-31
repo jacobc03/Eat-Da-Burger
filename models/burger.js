@@ -1,0 +1,1 @@
+var queries = require("./../config/orm.js");
