@@ -1,28 +1,27 @@
+// Basic server file. This file is soley to set up the express server & middleware
 var express = require('express');
 var bodyParser = require('body-parser');
-var methodOverride = require('method-override');
+var exphbs = require("express-handlebars");
+var methodOverride = require("method-override");
+
 var app = express();
- 
-// override with the X-HTTP-Method-Override header in the request 
-app.use(methodOverride('X-HTTP-Method-Override'))
 
-// parse application/x-www-form-urlencoded 
-app.use(bodyParser.urlencoded({ extended: false }))
- 
-// parse application/json 
-app.use(bodyParser.json())
- 
-app.use(function (req, res) {
-  res.setHeader('Content-Type', 'text/plain')
-  res.write('you posted:\n')
-  res.end(JSON.stringify(req.body, null, 2))
-})
+app.set('port', (process.env.PORT || 3000));
 
+app.use(bodyParser.json());
+app.use(bodyParser.text());
+app.use(bodyParser.urlencoded ({ extended:true }));
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use(express.static(__dirname + '/Public'));
+app.use(methodOverride("_method"));
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
- 
+// This makes a connection with burgers_controller.js; app is passed in as a parameter which allows
+// express commands to be used in burgers_controller.js despite app not being defined in that file (see burgers_controller.js)
+require('./controllers/burgers_controller.js')(app);
 
-
-
-
-app.listen(3000)
+app.listen(app.get('port'), function() {
+	console.log('Node app is running on port', app.get('port'));
+});
 

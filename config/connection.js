@@ -1,6 +1,7 @@
+//Installs MySQL
 var mysql = require('mysql');
 
-//connects to my burgers_db MySQL Database
+//stores information that is needed connect to my burgers_db MySQL Database
 var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
@@ -9,11 +10,10 @@ var connection = mysql.createConnection({
     database: "burgers_db"
 })
 
-//Successful connection is shown through console log
+//Connects to mySQL Database and logs successful connection is shown through console log
 connection.connect(function(err) {
 	if (err) throw err;
 	console.log("connected as id " + connection.threadId);
-
 })
 
 //exports connection to be used in orm.js file
