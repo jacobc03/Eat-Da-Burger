@@ -1,10 +1,23 @@
 body{
-	background-color: red;
+	background-image: url("http://www.themesltd.com/headers2/cute_happy_burgers.png");
 }
 h1{
 	text-align: center;
-	font-size: 50px;
+	font-size: 60px;
 }
 h2{
+	font-size: 45px;
 	text-align: center;
+	margin-bottom: 30px;
+}
+h3{
+	font-size: 30px;
+}
+
+.order{
+	text-align: center;
+}
+
+.devoured{
+	text-align: right;
 }
