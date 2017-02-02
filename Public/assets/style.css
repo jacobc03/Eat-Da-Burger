@@ -1,9 +1,11 @@
 body{
 	background-image: url("http://www.themesltd.com/headers2/cute_happy_burgers.png");
+	color: blue;
 }
 h1{
 	text-align: center;
 	font-size: 60px;
+
 }
 h2{
 	font-size: 45px;
@@ -12,6 +14,10 @@ h2{
 }
 h3{
 	font-size: 30px;
+	font-weight: bold;
+}
+p{
+	font-size: 20px;
 }
 
 .order{
@@ -19,5 +25,10 @@ h3{
 }
 
 .devoured{
-	text-align: right;
+	text-align: center;
+	background-color: white;
+}
+.toEat{
+	text-align: center;
+	background-color: white;
 }
