@@ -1,6 +1,6 @@
 <h1>Eat Da Burger!!!</h1>
 <hr>
-<h2>Get'em while they are HOT!!!</h2>
+<h2>Get'em while they are <span class='hot'>HOT!!!</span></h2>
 <hr>
 <div class="container">
 	<div class="row">
@@ -10,9 +10,7 @@
 			{{#each burgers}}
 			{{#unless this.devoured}}
 
-		  	<div>
 		  	   <p>{{this.id}}: {{this.burger_name}}</p>
-		  	</div>
 
 		  	<div>
 		  	   <!-- Form to delete the burger. The post will send the burger's id to the server -->
@@ -38,9 +36,9 @@
 			<h3>Eaten</h3>
 			{{#each burgers}}
 			{{#if this.devoured}}
-			<div>
+			
 				<p>{{this.id}}: {{this.burger_name}}</p>
-			</div>
+			
 			{{/if}}
 			{{/each}}	
 		</div>
