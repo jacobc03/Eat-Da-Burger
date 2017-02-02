@@ -7,7 +7,7 @@ var methodOverride = require("method-override");
 var app = express();
 
 //needed for heroku
-app.set('port', (process.env.PORT || 3000));
+app.set('port', (process.env.PORT || 5000));
 
 app.use(bodyParser.json());
 app.use(bodyParser.text());
