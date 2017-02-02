@@ -7,7 +7,7 @@ var methodOverride = require("method-override");
 var app = express();
 
 //needed for heroku
-app.listen('port', (process.env.PORT || 3000));
+app.set('port', (process.env.PORT || 5000));
 
 app.use(bodyParser.json());
 app.use(bodyParser.text());
@@ -22,5 +22,7 @@ app.set("view engine", "handlebars");
 require('./controllers/burgers_controller.js')(app);
 
 //tells app to start listening to port
-
+app.listen(app.get('port'), function() {
+	console.log('Node app is running on port', app.get('port'));
+});
 
